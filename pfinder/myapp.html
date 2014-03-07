@@ -100,8 +100,10 @@
 		<!--Load JS handmade-->
 		<script src="js/madforest.js"></script>
     <script type="text/javascript">
-			var fs = $("#fsize").val();
-   $("#start").click( function(){
+		
+		
+		var fs = $("#fsize").val();
+		$("#start").click( function(){
         $(this).off('click');
 		$(this).click(function(){ 
 		location.reload();
@@ -115,8 +117,8 @@
                 pfinder.setEnd(10, 15);
 				pfinder.find();
 			   
-			    $(this).text("Stop");
-			   
+			    $(this).text("Reload");
+			   $(this).removeClass().addClass("mybut1");
 			   })
    
    

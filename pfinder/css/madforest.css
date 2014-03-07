@@ -22,6 +22,7 @@ border-bottom-left-radius: 0;
 }
 
 .mybut{
+cursor:pointer;
 text-align: center;
 float: left;
 border: 0px;
@@ -40,6 +41,8 @@ background-image: linear-gradient(to right,rgba(122,0,122,0.6),#04c);
 }
 
 .mybut1{
+cursor:pointer;
+text-align: center;
 float: left;
 border: 0px;
 border-radius: 5px;
