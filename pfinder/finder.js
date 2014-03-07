@@ -166,6 +166,6 @@ var pfinder = {
             if(pfinder.curr.x == pfinder.end.x && pfinder.curr.y == pfinder.end.y) clearTimeout(timeoutId);
         }
 
-        timeoutId = setInterval(finder, 600);
+        timeoutId = setInterval(finder, 200);
     }
 };
