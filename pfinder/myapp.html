@@ -102,6 +102,11 @@
     <script type="text/javascript">
 			var fs = $("#fsize").val();
    $("#start").click( function(){
+        $(this).off('click');
+		$(this).click(function(){ 
+		location.reload();
+		
+		});
 			
 			var fs = $("#fsize").val();
 			   $("#area").empty();
@@ -109,6 +114,9 @@
 				pfinder.setStart(2, 3);
                 pfinder.setEnd(10, 15);
 				pfinder.find();
+			   
+			    $(this).text("Stop");
+			   
 			   })
    
    

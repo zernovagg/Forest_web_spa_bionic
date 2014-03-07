@@ -24,6 +24,7 @@
     margin: 1px;
     overflow: hidden;
     font-size: 8px;
+	background-color: rgba(256,256,256,0.7);
 }
 
 .curr{
