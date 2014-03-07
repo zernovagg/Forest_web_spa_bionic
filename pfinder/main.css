@@ -17,10 +17,10 @@
 }
 
 .block{
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     float: left;
-    border: 1px solid black;
+    border: 1px solid rgba(55,0,55,0.4);
     margin: 1px;
     overflow: hidden;
     font-size: 8px;

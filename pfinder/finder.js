@@ -25,6 +25,29 @@ var pfinder = {
             };
             $('#area').append('<div class="clear"></div>');
         };
+		
+		
+  
+	var width = $(".app").css("width"); //вычисляет в пикселях ширину приложения(в стилях она = 75% ширины экрана)
+	var height = (+width.slice(0,-2)); //высоте присваивает значение ширины. переводит в формат числа (обрезает в строке символы px, полученные при извлечении свйоства css)
+	
+	
+	//делает квадратом блок поля игры (в стилях ширина блока = 65% от ширины приложения) 
+	$(".table_field").css("width", Math.round(+height*0.65));
+	$(".app, .table_field, .control_panel ").css("height",  Math.round(+height*0.65)); 
+	
+	var n = $("#fsize").val();
+	var widthcell = Math.floor((+height*0.65)/n - 4); //вычисляет ширину одной клетки
+
+	
+	//по загрузке страницы всем клеточкам назначает вычисленную ширину-высоту
+
+	$(".block").css("width", widthcell);
+	$(".block").css("height", widthcell)
+
+
+		
+		
     },
 
     setStart : function(pos_x, pos_y){
