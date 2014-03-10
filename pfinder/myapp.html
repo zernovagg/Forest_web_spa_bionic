@@ -103,6 +103,8 @@
 		
 		
 		var fs = $("#fsize").val();
+		var qt = $("#qtrees").val();
+		var qb = $("#qbushes").val();
 		$("#start").click( function(){
         $(this).off('click');
 		$(this).click(function(){ 
@@ -110,11 +112,22 @@
 		
 		});
 			
+		//	function Random(){
+		//	pos_x =
+		//	pos_y =
+		//	 if 
+		//	}
+			
+			
 			var fs = $("#fsize").val();
 			   $("#area").empty();
 			   pfinder.genArea(fs, fs);
 				pfinder.setStart(2, 3);
                 pfinder.setEnd(10, 15);
+				//for (var i=1; i>=qt; i++){
+				pfinder.addBush(7,15);
+				pfinder.addTree(3,15);	
+				pfinder.addTree(1,11);	
 				pfinder.find();
 			   
 			    $(this).text("Reload");

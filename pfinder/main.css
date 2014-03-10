@@ -24,11 +24,11 @@
     margin: 1px;
     overflow: hidden;
     font-size: 8px;
-	background-color: rgba(256,256,256,0.7);
+	background-color: rgba(256,256,256,0.9);
 }
 
 .curr{
-    background-color: green;
+    background-color: grey;
 }
 
 .end{
@@ -37,12 +37,17 @@
 
 .close{
     border: 1px dashed blue;
+	background-color: rgba(256,256,256,0.9);
 }
 
 .open{
     border: 1px dotted blue;
 }
 
-.barrier{
-    background-color: black;
+.bush{
+    background-color: rgba(0,256,0,1);
+}
+
+.tree{
+    background-color: rgba(0,145,0,1);
 }

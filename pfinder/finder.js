@@ -120,8 +120,13 @@ var pfinder = {
         }
     },
 
-    addBarrier : function(pos_x, pos_y){
-        $('#pos_'+pos_x+'_'+pos_y).addClass('barrier');
+    addBush : function(pos_x, pos_y){
+        $('#pos_'+pos_x+'_'+pos_y).addClass('bush');
+        pfinder.addClose(pos_x, pos_y);
+
+    },
+	addTree : function(pos_x, pos_y){
+        $('#pos_'+pos_x+'_'+pos_y).addClass('tree');
         pfinder.addClose(pos_x, pos_y);
 
     },
@@ -129,7 +134,7 @@ var pfinder = {
     findAround : function(){
         if(pfinder.min) pfinder.setPos(pfinder.min.x, pfinder.min.y);
 
-        pfinder.addClose(pfinder.curr.x, pfinder.curr.y);
+       // pfinder.addClose(pfinder.curr.x, pfinder.curr.y);
 
         var min_x = eval(pfinder.curr.x) - 1;
         var min_y = eval(pfinder.curr.y) - 1;
