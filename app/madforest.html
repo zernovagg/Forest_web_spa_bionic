@@ -42,7 +42,7 @@
 	<label >
 	Field size
 	</label>
-    <input type="text" id="fsize" class="input-block-level" >
+    <input type="text" id="fsize" class="input-block-level" placeholder="optimal from 10 to 25">
 	<label>
 	Rabbit`s step
 	</label>
@@ -77,7 +77,7 @@
 	<label>
 	Speed
 	</label>
-    <input type="text" name="speed" class="input-block-level" >
+    <input type="text" id="speed" class="input-block-level" placeholder="optimal from 100 to 1000">
 	<div  style="width: 95%; margin: 0 auto;">
 	<div id="start"  class="mybut">Start</div>
 
@@ -117,20 +117,34 @@
 		//	pos_y =
 		//	 if 
 		//	}
-			
-			
+			var swolf = eval($("#wstep").val());
+			var speed = eval($("#speed").val());
 			var fs = $("#fsize").val();
 			   $("#area").empty();
 			 //  wolf.genArea(20,20);
 			   pfinder.genArea(fs, fs);
 				pfinder.setStart(2, 3);
-                pfinder.setEnd(4, 5);
+                pfinder.setEnd(15, 10);
 			
 				//for (var i=1; i>=qt; i++){
 				pfinder.addBush(7,15);
+				pfinder.addBush(9,10);
+				pfinder.addBush(9,9);
+				pfinder.addBush(9,8);
+				pfinder.addBush(9,11);
+				pfinder.addBush(9,12);
+				pfinder.addBush(9,13);
+				pfinder.addBush(9,14);
+				pfinder.addBush(9,15);
 				pfinder.addTree(3,15);	
 				pfinder.addTree(1,11);	
-				wolf();
+				//pfinder.find(speed);
+				
+				do{		
+				wolf(speed, swolf);}
+				while
+				(pfinder.curr.x == pfinder.end.x && pfinder.curr.y == pfinder.end.y);
+		
 			   
 			    $(this).text("Reload");
 			   $(this).removeClass().addClass("mybut1");

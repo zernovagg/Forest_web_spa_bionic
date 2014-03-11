@@ -133,6 +133,7 @@ var pfinder = {
     },
 
     findAround : function(){
+
         if(pfinder.min) pfinder.setPos(pfinder.min.x, pfinder.min.y);
 
         pfinder.addClose(pfinder.curr.x, pfinder.curr.y);
@@ -173,8 +174,8 @@ var pfinder = {
             }
         }
     },
-
-    find : function(){
+	
+    find : function(speed, swolf){
         pfinder.distance = pfinder.calcDistance(pfinder.start.x, pfinder.start.y, pfinder.end.x, pfinder.end.y);
         pfinder.addOpen(pfinder.curr.x, pfinder.curr.y, pfinder.curr.x, pfinder.curr.y);
 
@@ -190,17 +191,24 @@ var pfinder = {
             var pos = $(this).attr('id').split('_');
             pfinder.addBarrier(pos[1], pos[2]);
         });
-*/
+*/		var swolf = swolf;
+		var count = 1;
         function finder(){
             pfinder.findAround();
             console.log(pfinder);
-            if(pfinder.curr.x == pfinder.end.x && pfinder.curr.y == pfinder.end.y) clearTimeout(timeoutId);
+			if (count > swolf) {
+								clearTimeout(timeoutId);
+								count = 1;
+								timeoutId = setInterval(finder, speed);
+								};
+            if(pfinder.curr.x == pfinder.end.x && pfinder.curr.y == pfinder.end.y) alert("Game over!");
+			count++;
         }
-
-        timeoutId = setInterval(finder, 200);
+		
+        timeoutId = setInterval(finder, speed);
     }
 };
 
-function wolf(){
-pfinder.find.call();
+function wolf(speed, swolf){
+pfinder.find.call(this, speed, swolf);
 };
