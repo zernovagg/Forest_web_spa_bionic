@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>knockout learning</title>
+		
+		
+</head>
+    <body>
+	
+	<div id="content">
+        <strong data-bind="text: firstname"></strong>
+        <strong data-bind="text: lastname"></strong>
+    </div>
+	
+		<div id="content_value">
+        <input data-bind="value: firstname"/>
+        <input data-bind="value: lastname"/>
+    </div>
+	
+		<div id="content2">
+        <strong data-bind="text: firstname"></strong>
+        <strong data-bind="text: lastname"></strong>
+    </div>
+	
+		<div id="content_value2">
+        <input data-bind="value: firstname"/>
+        <input data-bind="value: lastname"/>
+    </div>
+	
+	<div id="content_value5">
+        <input data-bind="value: firstname"/>
+        <input data-bind="value: lastname"/>
+    </div>
+	
+	 <ul data-bind="foreach: people">
+            <li>
+                <span data-bind="text: text*"></span>
+                <input type="text" data-bind="value: firstname" />
+                <input type="text" data-bind="value: lastname" />
+                <br />
+                <strong data-bind="text: fullname"></strong>
+            </li>
+        </ul>
+	
+	
+		<script src="js/knockout-3.1.0.js"></script>
+		
+		<!--Load JS JQUERY-->
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+
+        <!--Load JS Bootstrap-->
+        <script src="js/bootstrap.min.js"></script>
+		<!--Load JS jquery validation -->
+        <script src="js/jquery.validate.min.js"></script>
+		
+		<!--Load JS handmade-->
+		<script src="js/knockoutlearning.js"></script>
+
+	
+	</body>
+</html>
