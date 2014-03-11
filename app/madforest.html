@@ -124,26 +124,27 @@
 			 //  wolf.genArea(20,20);
 			   pfinder.genArea(fs, fs);
 				pfinder.setStart(2, 3);
-                pfinder.setEnd(15, 10);
+                pfinder.setEnd(13, 13);
 			
 				//for (var i=1; i>=qt; i++){
 				pfinder.addBush(7,15);
 				pfinder.addBush(9,10);
-				pfinder.addBush(9,9);
-				pfinder.addBush(9,8);
-				pfinder.addBush(9,11);
-				pfinder.addBush(9,12);
+		
 				pfinder.addBush(9,13);
-				pfinder.addBush(9,14);
-				pfinder.addBush(9,15);
+	
 				pfinder.addTree(3,15);	
 				pfinder.addTree(1,11);	
-				//pfinder.find(speed);
+				//pfinder.find(speed, swolf);
+				//pfinder.find(speed, swolf);
+				function play(speed,swolf) {
+				for(var i=1; i<=2; i++){
+				wolf.call(this, speed, swolf);
+				}
 				
-				do{		
-				wolf(speed, swolf);}
-				while
-				(pfinder.curr.x == pfinder.end.x && pfinder.curr.y == pfinder.end.y);
+				}
+				play(speed,swolf);
+				//while
+				//(pfinder.curr.x != pfinder.end.x && pfinder.curr.y != pfinder.end.y){wolf(speed, swolf);};
 		
 			   
 			    $(this).text("Reload");

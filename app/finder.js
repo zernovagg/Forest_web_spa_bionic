@@ -134,7 +134,7 @@ var pfinder = {
 
     findAround : function(){
 
-        if(pfinder.min) pfinder.setPos(pfinder.min.x, pfinder.min.y);
+       
 
         pfinder.addClose(pfinder.curr.x, pfinder.curr.y);
 
@@ -173,10 +173,11 @@ var pfinder = {
                 }
             }
         }
+		 if(pfinder.min) pfinder.setPos(pfinder.min.x, pfinder.min.y);
     },
 	
     find : function(speed, swolf){
-        pfinder.distance = pfinder.calcDistance(pfinder.start.x, pfinder.start.y, pfinder.end.x, pfinder.end.y);
+        //pfinder.distance = pfinder.calcDistance(pfinder.start.x, pfinder.start.y, pfinder.end.x, pfinder.end.y);
         pfinder.addOpen(pfinder.curr.x, pfinder.curr.y, pfinder.curr.x, pfinder.curr.y);
 
         /*$(document).keypress(function (e) {
@@ -191,18 +192,22 @@ var pfinder = {
             var pos = $(this).attr('id').split('_');
             pfinder.addBarrier(pos[1], pos[2]);
         });
-*/		var swolf = swolf;
+*/		
+		var swolf = swolf;
 		var count = 1;
         function finder(){
             pfinder.findAround();
+			pfinder.setStart (pfinder.curr.x, pfinder.curr.y);
             console.log(pfinder);
-			if (count > swolf) {
+			if (count >= swolf) {
 								clearTimeout(timeoutId);
-								count = 1;
-								timeoutId = setInterval(finder, speed);
+							
+								
 								};
+									
+			count++;					
             if(pfinder.curr.x == pfinder.end.x && pfinder.curr.y == pfinder.end.y) alert("Game over!");
-			count++;
+			
         }
 		
         timeoutId = setInterval(finder, speed);
