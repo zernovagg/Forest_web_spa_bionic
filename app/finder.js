@@ -67,6 +67,7 @@ var pfinder = {
 
     setPos : function(pos_x, pos_y){
         $('#area div.curr').removeClass('curr');
+
         $('#pos_'+pos_x+'_'+pos_y).addClass('curr');
         pfinder.curr = {x:pos_x, y:pos_y};
     },
@@ -134,7 +135,7 @@ var pfinder = {
     findAround : function(){
         if(pfinder.min) pfinder.setPos(pfinder.min.x, pfinder.min.y);
 
-       // pfinder.addClose(pfinder.curr.x, pfinder.curr.y);
+        pfinder.addClose(pfinder.curr.x, pfinder.curr.y);
 
         var min_x = eval(pfinder.curr.x) - 1;
         var min_y = eval(pfinder.curr.y) - 1;
@@ -155,10 +156,12 @@ var pfinder = {
                     for(var pos_y in pfinder.open[pos_x]){
                         if(pfinder.open[pos_x][pos_y] != undefined){
                             var f = pfinder.open[pos_x][pos_y].to_end;
-                            if(pfinder.curr.x != pos_x && pfinder.curr.y != pos_y) f = f * 1.5;
+                          //  if(pfinder.curr.x != pos_x && pfinder.curr.y != pos_y) f = f * 1.5;
                             $('#pos_'+pos_x+'_'+pos_y).text(f);
                             if(pfinder.min){
-                                if(f < pfinder.min.amount && pfinder.calcDistance(pos_x, pos_y, pfinder.curr.x, pfinder.curr.y) <= 1){
+                                if(f < pfinder.min.amount 
+								//&& pfinder.calcDistance(pos_x, pos_y, pfinder.curr.x, pfinder.curr.y) <= 1
+								){
                                     pfinder.min = {x:pos_x, y:pos_y, amount:f};
                                 }
                             }else{
@@ -183,11 +186,11 @@ var pfinder = {
             }
         });*/
 
-        $('.block').click(function(){
+       /* $('.block').click(function(){
             var pos = $(this).attr('id').split('_');
             pfinder.addBarrier(pos[1], pos[2]);
         });
-
+*/
         function finder(){
             pfinder.findAround();
             console.log(pfinder);
@@ -196,4 +199,8 @@ var pfinder = {
 
         timeoutId = setInterval(finder, 200);
     }
+};
+
+function wolf(){
+pfinder.find.call();
 };

@@ -121,14 +121,16 @@
 			
 			var fs = $("#fsize").val();
 			   $("#area").empty();
+			 //  wolf.genArea(20,20);
 			   pfinder.genArea(fs, fs);
 				pfinder.setStart(2, 3);
-                pfinder.setEnd(10, 15);
+                pfinder.setEnd(4, 5);
+			
 				//for (var i=1; i>=qt; i++){
 				pfinder.addBush(7,15);
 				pfinder.addTree(3,15);	
 				pfinder.addTree(1,11);	
-				pfinder.find();
+				wolf();
 			   
 			    $(this).text("Reload");
 			   $(this).removeClass().addClass("mybut1");

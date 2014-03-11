@@ -2205,24 +2205,24 @@ transition:height .35s ease}
 .collapse.in{
 height:auto}
 
-.close{
+.close_{
 float:right;
 font-size:20px;
 font-weight:bold;
 line-height:20px;
 color:#000;
 text-shadow:0 1px 0 #fff;
-opacity:.2;
+
 filter:alpha(opacity=20)}
 
-.close:hover,.close:focus{
+.close_:hover,.close:focus{
 color:#000;
 text-decoration:none;
 cursor:pointer;
 opacity:.4;
 filter:alpha(opacity=40)}
 
-button.close{
+button.close_{
 padding:0;
 cursor:pointer;
 background:transparent;

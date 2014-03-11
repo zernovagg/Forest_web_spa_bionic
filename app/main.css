@@ -37,7 +37,7 @@
 
 .close{
     border: 1px dashed blue;
-	background-color: rgba(256,256,256,0.9);
+	//background-color: rgba(256,256,256,0.9);
 }
 
 .open{
@@ -45,9 +45,9 @@
 }
 
 .bush{
-    background-color: rgba(0,256,0,1);
+    background-color: green;
 }
 
 .tree{
-    background-color: rgba(0,145,0,1);
+    background-color: rgba(0,120,0,0.3);
 }
