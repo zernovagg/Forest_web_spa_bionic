@@ -102,9 +102,14 @@
     <script type="text/javascript">
 		
 		
+		function getRandomInt(min, max){
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+				}
+
+		
 		var fs = $("#fsize").val();
 		var qt = $("#qtrees").val();
-		var qb = $("#qbushes").val();
+		
 		$("#start").click( function(){
         $(this).off('click');
 		$(this).click(function(){ 
@@ -120,6 +125,7 @@
 			var  ltbush = eval($("#lbushes").val());
 			var swolf = eval($("#wstep").val());
 			var speed = eval($("#speed").val());
+			var qb = eval($("#qbushes").val());
 			var fs = $("#fsize").val();
 			   $("#area").empty();
 			 //  wolf.genArea(20,20);
@@ -127,8 +133,8 @@
 				pfinder.setStart(2, 3);
                 pfinder.setEnd(13, 13);
 			
-				//for (var i=1; i>=qt; i++){
-				pfinder.addBush(7,15, ltbush, speed);
+				for (var i=1; i<=qb; i++){
+				pfinder.addBush(getRandomInt(0, fs), getRandomInt(0, fs), ltbush, speed);};
 				pfinder.addBush(9,10, ltbush, speed);
 		
 				pfinder.addBush(9,13, ltbush, speed);

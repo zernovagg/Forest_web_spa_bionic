@@ -149,6 +149,8 @@ var pfinder = {
          pfinder.close[pos_x][pos_y] = undefined;
 		 pfinder.addOpenLight(pos_x, pos_y);
 		
+		
+				
 		}
 		setTimeout(death, ltbush*speed);
 		 },
