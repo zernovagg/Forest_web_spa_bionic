@@ -42,42 +42,42 @@
 	<label >
 	Field size
 	</label>
-    <input type="text" id="fsize" class="input-block-level" placeholder="optimal from 10 to 25">
+    <input type="text" id="fsize" class="input-block-level" placeholder="optimal from 10 to 25" value="25">
 	<label>
 	Rabbit`s step
 	</label>
-    <input type="text" id="rstep" class="input-block-level" >
+    <input type="text" id="rstep" class="input-block-level" value="5" >
 	
 	<label>
 	Wolf`s step
 	</label>
-    <input type="text" id="wstep" class="input-block-level">
+    <input type="text" id="wstep" class="input-block-level" value="3">
 	
 	<label>
 	Quantity of trees
 	</label>
-    <input type="text" id="qtrees" class="input-block-level" >
+    <input type="text" id="qtrees" class="input-block-level" value="45" >
 	
 	<label>
 	Life-time of trees
 	</label>
-    <input type="text" id="ltrees" class="input-block-level" >
+    <input type="text" id="ltrees" class="input-block-level"  value="7" >
 	
 	
 	<label>
 	Quantity of bushes
 	</label>
-    <input type="text" id="qbushes" class="input-block-level" >
+    <input type="text" id="qbushes" class="input-block-level"  value="50" >
 	
 	<label>
 	Life-time of bushes
 	</label>
-    <input type="text" id="lbushes" class="input-block-level" >
+    <input type="text" id="lbushes" class="input-block-level"  value="2">
 	
 	<label>
 	Speed
 	</label>
-    <input type="text" id="speed" class="input-block-level" placeholder="optimal from 100 to 1000">
+    <input type="text" id="speed" class="input-block-level" placeholder="optimal from 100 to 1500"  value="1500">
 	<div  style="width: 95%; margin: 0 auto;">
 	<div id="start"  class="mybut">Start</div>
 
@@ -125,6 +125,7 @@
 			var  lttree = eval($("#ltrees").val());
 			var  ltbush = eval($("#lbushes").val());
 			var swolf = eval($("#wstep").val());
+			var sRabbit = eval($("#rstep").val());
 			var speed = eval($("#speed").val());
 			var qb = eval($("#qbushes").val());
 			var qt =  eval($("#qtrees").val());
@@ -132,27 +133,32 @@
 			   $("#area").empty();
 			 //  wolf.genArea(20,20);
 			   pfinder.genArea(fs, fs);
-				pfinder.setStart(2, 3);
-                pfinder.setEnd(13, 13);
+				pfinder.setStart(getRandomInt(0, (fs-1)), getRandomInt(0, (fs-1)));
+				pfinder.setStartR(getRandomInt(0, (fs-1)), getRandomInt(0, (fs-1)));
+                pfinder.setEnd();
+				pfinder.setEndR();
 				for (var i=1; i<=qb; i++){
-				pfinder.addBush(getRandomInt(0, fs), getRandomInt(0, fs), ltbush, speed);};
+				pfinder.addBush(getRandomInt(0, (fs-1)), getRandomInt(0, (fs-1)), ltbush, speed);};//нуеобходимо продумать проверку, чтоб кусты и деревья не выростали на кустах-деревьях и зайце-волке....
 				for (var i=1; i<=qt; i++){
-				pfinder.addTree(getRandomInt(0, fs), getRandomInt(0, fs), lttree, speed);};
+				pfinder.addTree(getRandomInt(0,(fs-1)), getRandomInt(0, (fs-1)), lttree, speed);};
 				
 				setInterval(function(){
 				for (var i=1; i<=qb; i++){
-				pfinder.addBush(getRandomInt(0, fs), getRandomInt(0, fs), ltbush, speed);};
+				pfinder.addBush(getRandomInt(0, (fs-1)), getRandomInt(0,(fs-1)), ltbush, speed);};
 									}, speed*ltbush);
 				
 				setInterval(function(){
 				for (var i=1; i<=qt; i++){
-				pfinder.addTree(getRandomInt(0, fs), getRandomInt(0, fs), lttree, speed);};
+				pfinder.addTree(getRandomInt(0, (fs-1)), getRandomInt(0, (fs-1)), lttree, speed);};
 									}, speed*lttree);
 	
 			
 				setInterval(function(){
 				wolf.call(this, swolf)}, speed);
 				
+				
+				//setInterval(function(){
+				//rabbit.call(this, sRabbit)}, speed);
 		
 			   
 			    $(this).text("Reload");

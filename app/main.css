@@ -27,13 +27,16 @@
 	background-color: rgba(256,256,256,0.9);
 }
 
-.curr{
-    background-color: grey;
+.currWolf{
+    background-color: blue;
 }
 
-.end{
+.currRabbit{
     background-color: red;
 }
+
+
+
 
 .close{
     border: 1px dashed blue;
