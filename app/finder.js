@@ -141,14 +141,14 @@ var pfinder = {
     },
 
     addBush : function(pos_x, pos_y, ltbush, speed){
-        $('#pos_'+pos_x+'_'+pos_y).addClass('bush');
+     
+		$('#pos_'+pos_x+'_'+pos_y).addClass('bush');
         pfinder.addClose(pos_x, pos_y);
 		
-		function death(){
+		function death(ltbush, speed){
 		 $('#pos_'+pos_x+'_'+pos_y).removeClass('bush').removeClass('close');
          pfinder.close[pos_x][pos_y] = undefined;
 		 pfinder.addOpenLight(pos_x, pos_y);
-		
 		
 				
 		}

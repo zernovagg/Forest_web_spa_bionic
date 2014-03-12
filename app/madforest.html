@@ -132,9 +132,13 @@
 			   pfinder.genArea(fs, fs);
 				pfinder.setStart(2, 3);
                 pfinder.setEnd(13, 13);
-			
+				pfinder.addBush(getRandomInt(0, fs), getRandomInt(0, fs), ltbush, speed);
+				
+				setInterval(function(){
 				for (var i=1; i<=qb; i++){
 				pfinder.addBush(getRandomInt(0, fs), getRandomInt(0, fs), ltbush, speed);};
+									}, speed*ltbush);
+				
 				pfinder.addBush(9,10, ltbush, speed);
 		
 				pfinder.addBush(9,13, ltbush, speed);
