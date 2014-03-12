@@ -117,6 +117,7 @@
 		//	pos_y =
 		//	 if 
 		//	}
+			var  ltbush = eval($("#lbushes").val());
 			var swolf = eval($("#wstep").val());
 			var speed = eval($("#speed").val());
 			var fs = $("#fsize").val();
@@ -127,17 +128,17 @@
                 pfinder.setEnd(13, 13);
 			
 				//for (var i=1; i>=qt; i++){
-				pfinder.addBush(7,15);
-				pfinder.addBush(9,10);
+				pfinder.addBush(7,15, ltbush, speed);
+				pfinder.addBush(9,10, ltbush, speed);
 		
-				pfinder.addBush(9,13);
+				pfinder.addBush(9,13, ltbush, speed);
 	
 				pfinder.addTree(3,15);	
 				pfinder.addTree(1,11);	
 				//pfinder.find(speed, swolf);
 				//pfinder.find(speed, swolf);
 				setInterval(function(){
-				wolf.call(this, speed, swolf)}, 1500);
+				wolf.call(this, swolf)}, speed);
 				//while
 				//(pfinder.curr.x != pfinder.end.x && pfinder.curr.y != pfinder.end.y){wolf(speed, swolf);};
 		

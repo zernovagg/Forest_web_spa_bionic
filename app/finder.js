@@ -120,15 +120,43 @@ var pfinder = {
             $('#pos_'+pos_x+'_'+pos_y).addClass('open');
         }
     },
+	
+	 addOpenLight : function(pos_x, pos_y){
+        var define = false;
+        if(pfinder.open[pos_x] != undefined){
+            if(pfinder.open[pos_x][pos_y] != undefined){
+                var define = true;
+            }
+        }
 
-    addBush : function(pos_x, pos_y){
+        if(pfinder.close[pos_x] != undefined){
+            if(pfinder.close[pos_x][pos_y] != undefined){
+                var define = true;
+            }
+        }
+
+        if(!define){
+                       $('#pos_'+pos_x+'_'+pos_y).addClass('open');
+        }
+    },
+
+    addBush : function(pos_x, pos_y, ltbush, speed){
         $('#pos_'+pos_x+'_'+pos_y).addClass('bush');
         pfinder.addClose(pos_x, pos_y);
-
-    },
+		
+		function death(){
+		 $('#pos_'+pos_x+'_'+pos_y).removeClass('bush').removeClass('close');
+         pfinder.close[pos_x][pos_y] = undefined;
+		 pfinder.addOpenLight(pos_x, pos_y);
+		
+		}
+		setTimeout(death, ltbush*speed);
+		 },
+	
 	addTree : function(pos_x, pos_y){
         $('#pos_'+pos_x+'_'+pos_y).addClass('tree');
         pfinder.addClose(pos_x, pos_y);
+		
 
     },
 
@@ -174,9 +202,19 @@ var pfinder = {
             }
         }
 		 if(pfinder.min) pfinder.setPos(pfinder.min.x, pfinder.min.y);
+		 
+	/*	 for (var y = min_y; y <= max_y; y++){
+            for (var x = min_x; x <= max_x; x++){
+                if(x > 0 && y > 0 && x <= pfinder.size.x && y <= pfinder.size.y)
+                   { pfinder.open[x][y]= undefined;
+				   $('#pos_'+x+'_'+y).text().removeClass("open");
+					}
+            };
+        };*/
+		 
     },
 	
-    find : function(speed, swolf){
+    find : function(swolf){
         //pfinder.distance = pfinder.calcDistance(pfinder.start.x, pfinder.start.y, pfinder.end.x, pfinder.end.y);
         pfinder.addOpen(pfinder.curr.x, pfinder.curr.y, pfinder.curr.x, pfinder.curr.y);
 
@@ -192,9 +230,9 @@ var pfinder = {
             var pos = $(this).attr('id').split('_');
             pfinder.addBarrier(pos[1], pos[2]);
         });
-*/		var speed = speed;
+*/		
 		var swolf = swolf;
-		for (var count = 1; count<=swolf; count++){setTimeout(finder(),speed)};
+		for (var count = 1; count<=swolf; count++){setTimeout(finder(), 0)};
         function finder(){
             pfinder.findAround();
 			pfinder.setStart (pfinder.curr.x, pfinder.curr.y);
