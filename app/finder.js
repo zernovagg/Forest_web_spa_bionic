@@ -155,10 +155,18 @@ var pfinder = {
 		setTimeout(death, ltbush*speed);
 		 },
 	
-	addTree : function(pos_x, pos_y){
+	addTree : function(pos_x, pos_y, lttree, speed){
         $('#pos_'+pos_x+'_'+pos_y).addClass('tree');
         pfinder.addClose(pos_x, pos_y);
 		
+		function death(lttree, speed){
+		 $('#pos_'+pos_x+'_'+pos_y).removeClass('tree').removeClass('close');
+         pfinder.close[pos_x][pos_y] = undefined;
+		 pfinder.addOpenLight(pos_x, pos_y);
+		
+				
+		}
+		setTimeout(death, lttree*speed);
 
     },
 

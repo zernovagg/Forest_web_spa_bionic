@@ -108,7 +108,7 @@
 
 		
 		var fs = $("#fsize").val();
-		var qt = $("#qtrees").val();
+
 		
 		$("#start").click( function(){
         $(this).off('click');
@@ -122,35 +122,37 @@
 		//	pos_y =
 		//	 if 
 		//	}
+			var  lttree = eval($("#ltrees").val());
 			var  ltbush = eval($("#lbushes").val());
 			var swolf = eval($("#wstep").val());
 			var speed = eval($("#speed").val());
 			var qb = eval($("#qbushes").val());
+			var qt =  eval($("#qtrees").val());
 			var fs = $("#fsize").val();
 			   $("#area").empty();
 			 //  wolf.genArea(20,20);
 			   pfinder.genArea(fs, fs);
 				pfinder.setStart(2, 3);
                 pfinder.setEnd(13, 13);
-				pfinder.addBush(getRandomInt(0, fs), getRandomInt(0, fs), ltbush, speed);
+				for (var i=1; i<=qb; i++){
+				pfinder.addBush(getRandomInt(0, fs), getRandomInt(0, fs), ltbush, speed);};
+				for (var i=1; i<=qt; i++){
+				pfinder.addTree(getRandomInt(0, fs), getRandomInt(0, fs), lttree, speed);};
 				
 				setInterval(function(){
 				for (var i=1; i<=qb; i++){
 				pfinder.addBush(getRandomInt(0, fs), getRandomInt(0, fs), ltbush, speed);};
 									}, speed*ltbush);
 				
-				pfinder.addBush(9,10, ltbush, speed);
-		
-				pfinder.addBush(9,13, ltbush, speed);
+				setInterval(function(){
+				for (var i=1; i<=qt; i++){
+				pfinder.addTree(getRandomInt(0, fs), getRandomInt(0, fs), lttree, speed);};
+									}, speed*lttree);
 	
-				pfinder.addTree(3,15);	
-				pfinder.addTree(1,11);	
-				//pfinder.find(speed, swolf);
-				//pfinder.find(speed, swolf);
+			
 				setInterval(function(){
 				wolf.call(this, swolf)}, speed);
-				//while
-				//(pfinder.curr.x != pfinder.end.x && pfinder.curr.y != pfinder.end.y){wolf(speed, swolf);};
+				
 		
 			   
 			    $(this).text("Reload");
