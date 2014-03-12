@@ -192,25 +192,21 @@ var pfinder = {
             var pos = $(this).attr('id').split('_');
             pfinder.addBarrier(pos[1], pos[2]);
         });
-*/		
+*/		var speed = speed;
 		var swolf = swolf;
-		var count = 1;
+		for (var count = 1; count<=swolf; count++){setTimeout(finder(),speed)};
         function finder(){
             pfinder.findAround();
 			pfinder.setStart (pfinder.curr.x, pfinder.curr.y);
             console.log(pfinder);
-			if (count >= swolf) {
-								clearTimeout(timeoutId);
-							
-								
-								};
+		
 									
-			count++;					
+								
             if(pfinder.curr.x == pfinder.end.x && pfinder.curr.y == pfinder.end.y) alert("Game over!");
 			
         }
 		
-        timeoutId = setInterval(finder, speed);
+       
     }
 };
 

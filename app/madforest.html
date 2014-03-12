@@ -136,7 +136,8 @@
 				pfinder.addTree(1,11);	
 				//pfinder.find(speed, swolf);
 				//pfinder.find(speed, swolf);
-				wolf(speed, swolf);
+				setInterval(function(){
+				wolf.call(this, speed, swolf)}, 1500);
 				//while
 				//(pfinder.curr.x != pfinder.end.x && pfinder.curr.y != pfinder.end.y){wolf(speed, swolf);};
 		
