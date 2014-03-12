@@ -91,7 +91,7 @@ var pfinder = {
         $('#area div.currRabbit').removeClass('currRabbit');
 
         $('#pos_'+pos_x+'_'+pos_y).addClass('currRabbit');
-        pfinder.curr = {x:pos_x, y:pos_y};
+        pfinder.currR = {x:pos_x, y:pos_y};
     },
 
     addClose : function(pos_x, pos_y){
@@ -144,11 +144,7 @@ var pfinder = {
 	
 	addOpenR : function(pos_x, pos_y, parent_x, parent_y){
         var define = false;
-        if(pfinder.open[pos_x] != undefined){
-            if(pfinder.open[pos_x][pos_y] != undefined){
-                var define = true;
-            }
-        }
+        
 
         if(pfinder.close[pos_x] != undefined){
             if(pfinder.close[pos_x][pos_y] != undefined){
@@ -168,7 +164,7 @@ var pfinder = {
     },
 	
 	
-	 addOpenLight : function(pos_x, pos_y){
+	/* addOpenLight : function(pos_x, pos_y){
         var define = false;
         if(pfinder.open[pos_x] != undefined){
             if(pfinder.open[pos_x][pos_y] != undefined){
@@ -185,7 +181,7 @@ var pfinder = {
         if(!define){
                        $('#pos_'+pos_x+'_'+pos_y).addClass('open');
         }
-    },
+    },*/
 
     addBush : function(pos_x, pos_y, ltbush, speed){
      
@@ -195,7 +191,7 @@ var pfinder = {
 		function death(ltbush, speed){
 		 $('#pos_'+pos_x+'_'+pos_y).removeClass('bush').removeClass('close');
          pfinder.close[pos_x][pos_y] = undefined;
-		 pfinder.addOpenLight(pos_x, pos_y);
+		// pfinder.addOpenLight(pos_x, pos_y);
 		
 				
 		}
@@ -209,7 +205,7 @@ var pfinder = {
 		function death(lttree, speed){
 		 $('#pos_'+pos_x+'_'+pos_y).removeClass('tree').removeClass('close');
          pfinder.close[pos_x][pos_y] = undefined;
-		 pfinder.addOpenLight(pos_x, pos_y);
+		// pfinder.addOpenLight(pos_x, pos_y);
 		
 				
 		}
@@ -348,7 +344,7 @@ var pfinder = {
 		
 									
 								
-            if(pfinder.curr.x == pfinder.end.x && pfinder.curr.y == pfinder.end.y) alert("Game over!");
+            if(pfinder.curr.x == pfinder.currR.x && pfinder.curr.y == pfinder.currR.y) alert("Game over!");
 			
         }
 		
@@ -369,7 +365,7 @@ var pfinder = {
 		
 									
 								
-            if(pfinder.currR.x == pfinder.endR.x && pfinder.currR.y == pfinder.endR.y) alert("Game over!");
+            if(pfinder.currR.x == pfinder.curr.x && pfinder.currR.y == pfinder.curr.y) alert("Game over!");
 			
         }
 		
