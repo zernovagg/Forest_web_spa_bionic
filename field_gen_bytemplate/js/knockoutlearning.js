@@ -74,7 +74,7 @@ var people ={first:{
 var element5 = document.getElementById("content_value5");
 ko.applyBindings(viewModel1, element5);
 
-*/
+
 function SeatReservation(name, initialMeal, fn, ln) {
     var self = this;
     self.name = name;
@@ -90,7 +90,7 @@ function SeatReservation(name, initialMeal, fn, ln) {
 
 
 // Overall viewmodel for this screen, along with initial state
-function ReservationsViewModel() {
+/*function ReservationsViewModel() {
     var self = this;
 
     // Non-editable catalog data - would come from the server
@@ -115,16 +115,16 @@ function ReservationsViewModel() {
 
 ko.applyBindings(new ReservationsViewModel());
 
-
+*/
 
 
 function personViewModel(fn, ln) {
-  
-        firstname = ko.observable(fn);
-        lastname = ko.observable(ln);
+	var self = this;
+        self.firstname = ko.observable(fn);
+        self.lastname = ko.observable(ln);
         
-        fullname = ko.computed(function () {
-            return firstname() + " " + lastname();
+       self.fullname = ko.computed(function () {
+            return self.firstname() + " " + self.lastname();
         });
 
    
@@ -135,8 +135,9 @@ function peopleViewModel() {
  
    
     p = ko.observableArray([
-	new personViewModel("Andrey", "Drebot"),
-	new personViewModel("Ivan", "Petrov")
+		new personViewModel("Ivan", "Petrov"),
+	new personViewModel("Andrey", "Drebot")
+
 	
 	]);
 };

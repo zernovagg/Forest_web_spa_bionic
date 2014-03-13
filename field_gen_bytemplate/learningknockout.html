@@ -32,7 +32,7 @@
 	<div id="content_value5">
         <input data-bind="value: firstname"/>
         <input data-bind="value: lastname"/>
-    </div>--->
+    </div>
 	
 	<h2>Your seat reservations</h2>
 
@@ -55,7 +55,7 @@
     
     </tbody>
    
-</table>
+</table>--->
 	
 	
 	 <ul data-bind="foreach: p">
@@ -64,7 +64,8 @@
                 <input type="text" data-bind="value: firstname()" />
                 <input type="text" data-bind="value: lastname()" />
                 <br />
-               
+				 <strong data-bind="text: firstname()"></strong>
+                     <strong data-bind="text: fullname()"></strong>
             </li>
         </ul>
 	
