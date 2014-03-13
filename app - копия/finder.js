@@ -25,9 +25,9 @@ var pfinder = {
 	
 	genMatrix : function(pos_x, pos_y){
         pfinder.size = {x:pos_x, y:pos_y};
-        for (var y = 1; y <= pos_y; y++){
+        for (var y = 0; y <= pos_y; y++){
 		 pfinder.matrix[y]=[];
-            for (var x = 1; x <= pos_x; x++){
+            for (var x = 0; x <= pos_x; x++){
                 pfinder.matrix[y][x]= 0
 			
             };
@@ -37,8 +37,8 @@ var pfinder = {
 		
     genArea : function(pos_x, pos_y){
         pfinder.size = {x:pos_x, y:pos_y};
-        for (var y = 1; y <= pos_y; y++){
-            for (var x = 1; x <= pos_x; x++){
+        for (var y = 0; y <= pos_y; y++){
+            for (var x = 0; x <= pos_x; x++){
                 $('#area').append('<div class="block" id="pos_'+x+'_'+y+'"></div>');
             };
             $('#area').append('<div class="clear"></div>');
