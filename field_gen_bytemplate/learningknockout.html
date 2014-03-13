@@ -9,7 +9,7 @@
 </head>
     <body>
 	
-	<div id="content">
+	<!---<div id="content">
         <strong data-bind="text: firstname"></strong>
         <strong data-bind="text: lastname"></strong>
     </div>
@@ -32,15 +32,39 @@
 	<div id="content_value5">
         <input data-bind="value: firstname"/>
         <input data-bind="value: lastname"/>
-    </div>
+    </div>--->
 	
-	 <ul data-bind="foreach: people">
+	<h2>Your seat reservations</h2>
+
+<table>
+    <thead><tr>
+        <th>Passenger name</th><th>Meal</th><th>Surcharge</th><th></th>
+    </tr></thead>
+    
+    <tbody data-bind="foreach: seats">
+     <tr>
+        <td data-bind="text: name"></td>
+        <td data-bind="text: meal().mealName"></td>
+        <td data-bind="text: meal().price"></td>
+		<td data-bind="text: firstname()"></td>
+        <td data-bind="text: lastname()"></td>
+    </tr>  
+    
+    
+    
+    
+    </tbody>
+   
+</table>
+	
+	
+	 <ul data-bind="foreach: p">
             <li>
-                <span data-bind="text: text*"></span>
-                <input type="text" data-bind="value: firstname" />
-                <input type="text" data-bind="value: lastname" />
+              
+                <input type="text" data-bind="value: firstname()" />
+                <input type="text" data-bind="value: lastname()" />
                 <br />
-                <strong data-bind="text: fullname"></strong>
+               
             </li>
         </ul>
 	
