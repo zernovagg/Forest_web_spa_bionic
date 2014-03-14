@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Madness in Forest</title>
+		
+		 <link rel="shortcut icon" href="img/potion_green.ico">
+        <!-- styles Bootsrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="css/madforest.css" rel="stylesheet">
+        <!-- end styles Bootsrap -->
+		 <link rel="stylesheet" href="main.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="finder.js"></script>
+    
+		
+</head>
+    <body>
+	<section class="app">
+	<div id="field" class="table_field">
+	
+		<div id="area">
+
+        </div>
+	
+	</div>
+	<div class="control_panel">
+	<form id="param_form" class="inputs">
+	
+	<!--<label>
+	Width
+	</label>
+    <input type="text" name="width" class="input-block-level" required="">
+	
+	<label>
+	Height
+	</label>
+    <input type="text" name="height" class="input-block-level" required="">
+	--->
+	<label >
+	Field size
+	</label>
+    <input type="text" id="fsize" class="input-block-level" placeholder="optimal from 10 to 25" value="25">
+	<label>
+	Rabbit`s step
+	</label>
+    <input type="text" id="rstep" class="input-block-level" value="5" >
+	
+	<label>
+	Wolf`s step
+	</label>
+    <input type="text" id="wstep" class="input-block-level" value="3">
+	
+	<label>
+	Quantity of trees
+	</label>
+    <input type="text" id="qtrees" class="input-block-level" value="45" >
+	
+	<label>
+	Life-time of trees
+	</label>
+    <input type="text" id="ltrees" class="input-block-level"  value="7" >
+	
+	
+	<label>
+	Quantity of bushes
+	</label>
+    <input type="text" id="qbushes" class="input-block-level"  value="50" >
+	
+	<label>
+	Life-time of bushes
+	</label>
+    <input type="text" id="lbushes" class="input-block-level"  value="2">
+	
+	<label>
+	Speed
+	</label>
+    <input type="text" id="speed" class="input-block-level" placeholder="optimal from 100 to 1500"  value="1500">
+	<div  style="width: 95%; margin: 0 auto;">
+	<div id="start"  class="mybut">Start</div>
+
+	</div>
+	</form>
+	</div>
+	</section>
+	
+	
+
+		<!--Load JS JQUERY-->
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+
+        <!--Load JS Bootstrap-->
+        <script src="js/bootstrap.min.js"></script>
+		<!--Load JS jquery validation -->
+        <script src="js/jquery.validate.min.js"></script>
+		
+		<!--Load JS handmade-->
+		<script src="js/madforest.js"></script>
+    <script type="text/javascript">
+		
+		
+		function getRandomInt(min, max){
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+				}
+
+		
+		var fs = $("#fsize").val();
+
+		
+		$("#start").click( function(){
+        $(this).off('click');
+		$(this).click(function(){ 
+		location.reload();
+		
+		});
+			
+		//	function Random(){
+		//	pos_x =
+		//	pos_y =
+		//	 if 
+		//	}
+			var  lttree = eval($("#ltrees").val());
+			var  ltbush = eval($("#lbushes").val());
+			var swolf = eval($("#wstep").val());
+			var sRabbit = eval($("#rstep").val());
+			var speed = eval($("#speed").val());
+			var qb = eval($("#qbushes").val());
+			var qt =  eval($("#qtrees").val());
+			var fs = $("#fsize").val();
+			   $("#area").empty();
+			 //  wolf.genArea(20,20);
+			   pfinder.genArea(fs, fs);
+				pfinder.setStart(getRandomInt(0, (fs-1)), getRandomInt(0, (fs-1)));
+				pfinder.setStartR(getRandomInt(0, (fs-1)), getRandomInt(0, (fs-1)));
+                pfinder.setEnd();
+				pfinder.setEndR();
+				for (var i=1; i<=qb; i++){
+				pfinder.addBush(getRandomInt(0, (fs-1)), getRandomInt(0, (fs-1)), ltbush, speed);};//нуеобходимо продумать проверку, чтоб кусты и деревья не выростали на кустах-деревьях и зайце-волке....
+				for (var i=1; i<=qt; i++){
+				pfinder.addTree(getRandomInt(0,(fs-1)), getRandomInt(0, (fs-1)), lttree, speed);};
+				
+				setInterval(function(){
+				for (var i=1; i<=qb; i++){
+				pfinder.addBush(getRandomInt(0, (fs-1)), getRandomInt(0,(fs-1)), ltbush, speed);};
+									}, speed*ltbush);
+				
+				setInterval(function(){
+				for (var i=1; i<=qt; i++){
+				pfinder.addTree(getRandomInt(0, (fs-1)), getRandomInt(0, (fs-1)), lttree, speed);};
+									}, speed*lttree);
+	
+			
+				setInterval(function(){
+				//wolf.call(this, swolf);
+				rabbit.call(this, sRabbit)
+				}, speed);
+				
+				
+				
+				
+		
+			   
+			    $(this).text("Reload");
+			   $(this).removeClass().addClass("mybut1");
+			   })
+   
+   
+			  
+		
+			
+        </script>
+	
+	</body>
+</html>
+
+
+
+   

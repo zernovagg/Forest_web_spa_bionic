@@ -1,0 +1,67 @@
+/*
+*
+* Copyright 2012
+* Denis Platonov (newpdv)
+* http://habrahabr.ru/users/newpdv/
+* newpdv@gmail.com
+*
+*/
+
+#area{
+    width: 100%;
+    height: 100%;
+}
+
+.clear{
+    clear: both;
+}
+
+.block{
+    width: 22px;
+    height: 22px;
+    float: left;
+    border: 1px solid rgba(55,0,55,0.4);
+    margin: 1px;
+    overflow: hidden;
+    font-size: 8px;
+	background-color: rgba(256,256,256,0.9);
+}
+
+.currWolf{
+    background-color: blue;
+}
+
+.currRabbit{
+    background-color: red;
+}
+
+
+
+
+.close{
+    border: 1px dashed blue;
+	//background-color: rgba(256,256,256,0.9);
+}
+
+.way{
+	 border: 1px dashed blue;
+	
+}
+
+.wayR{
+	  border: 1px dotted blue;
+	
+}
+
+
+.open{
+    border: 1px dotted blue;
+}
+
+.bush{
+    background-color: green;
+}
+
+.tree{
+    background-color: rgba(0,120,0,0.3);
+}
