@@ -145,21 +145,24 @@
                 pfinder.setEnd();
 				pfinder.setEndR();
 				
-				function check(pos_x, pos_y){
-				var open = {x: pos_x, y: pos_y};
-				 return (pfinder.matrix[pos_x][pos_y] = 1) ? check(pos_x, pos_y) : open;
+			//	function check(pos_x, pos_y){
+				
+			//	var open = {x: pos_x, y: pos_y};
+			//	 return (pfinder.matrix[pos_x][pos_y] = 1) ? check(pos_x, pos_y) : open;
 	
 					
-				}
+			//	}
 				
 				
 				for (var i=1; i<=qb; i++){
 				
 				var x =  getRandomInt(0, (fs-1));
 				var y = getRandomInt(0, (fs-1));
-				check(x,y);
+			//	check(x,y);
 						
-				pfinder.addBush(open[x], open[y] , ltbush, speed)
+				pfinder.addBush( x,y, ltbush, speed)
+				//open[x], open[y] 
+				
 							
 				};
 				

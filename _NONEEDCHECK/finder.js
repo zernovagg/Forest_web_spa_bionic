@@ -157,7 +157,7 @@ var pfinder = {
                 if(x > 0 && y > 0 && x <= pfinder.size.x && y <= pfinder.size.y && pfinder.matrix[x][y] != 1 )
                     {
 					
-					pfinder.step[pfinder.curr.x][pfinder.curr.y] = pfinder.calcDistance(pfinder.curr.x, pfinder.curr.y, pfinder.end.x, pfinder.end.y);
+					pfinder.step[x][y] = pfinder.calcDistance(pfinder.curr.x, pfinder.curr.y, pfinder.end.x, pfinder.end.y);
 					}
             };
         };
